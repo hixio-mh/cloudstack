@@ -21,7 +21,8 @@
   "scripts": {
     "lint": "eslint app core po tests utils",
     "test": "karma start karma.conf.js",
-    "prepublish": "node ./utils/use_require.js --as commonjs --clean"
+    "prepublish": "npm run snyk-protect && node ./utils/use_require.js --as commonjs --clean",
+    "snyk-protect": "snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -57,7 +58,7 @@
     "eslint": "^4.16.0",
     "fs-extra": "^1.0.0",
     "jsdom": "*",
-    "karma": "^1.3.0",
+    "karma": "^2.0.0",
     "karma-mocha": "^1.3.0",
     "karma-mocha-reporter": "^2.2.0",
     "karma-sauce-launcher": "^1.0.0",
@@ -71,11 +72,14 @@
     "sinon": "^4.0.0",
     "sinon-chai": "^2.8.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@snyk/protect": "latest"
+  },
   "keywords": [
     "vnc",
     "rfb",
     "novnc",
     "websockify"
-  ]
+  ],
+  "snyk": true
 }
